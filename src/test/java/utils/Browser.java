@@ -20,8 +20,9 @@ public class Browser {
             try{
                 ChromeOptions capability = new ChromeOptions();
                 driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capability);
-                wait = new WebDriverWait(driver, 38);
+                wait = new WebDriverWait(driver, 30);
                 driver.manage().window().maximize();
+                driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
                 driver.manage().timeouts().pageLoadTimeout(38, TimeUnit.SECONDS);
 
             } catch (MalformedURLException e){
